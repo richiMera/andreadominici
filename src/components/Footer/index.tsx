@@ -9,7 +9,7 @@ interface Props {
 const Footer: React.FC<Props> = ({ isMobile }) => {
 
 
-    const lettersArray = ['A', 'n'];
+    const lettersArray = ['A', 'N'];
 
 
     const [trail, setTrail] = useState<{ letter: string; left: number; top: number }[]>([]);
@@ -99,6 +99,7 @@ const Footer: React.FC<Props> = ({ isMobile }) => {
                         <Grid style={{ display: 'flex', justifyContent: 'flex-end' }} item xs={6}>
 
                             <p className='caption'>Tutti i diritti riservati</p>
+
                         </Grid>
                     </Grid>
                 </Grid>

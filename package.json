@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "deploy": "vite build && vite-gh-pages"
+    "deploy": "vite build && gh-pages -d dist"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
