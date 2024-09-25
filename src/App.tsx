@@ -12,7 +12,7 @@ const App: React.FC = () => {
     <Router>
       <Routes>
 
-        <Route path="/" element={<GsapTry />} />
+        <Route path="/andreadominici/" element={<GsapTry />} />
 
       </Routes>
     </Router>
