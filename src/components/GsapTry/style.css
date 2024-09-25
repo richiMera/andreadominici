@@ -1,0 +1,38 @@
+.section {
+    min-height: 100vh;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    /* display: flex;
+    justify-content: flex-start;
+    align-items: center; */
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+.section.four.section_to-pin {
+    height: 100vh;
+    left: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+}
+
+.section.four .section_pin {
+    height: 100vh;
+    /* padding: 120px 12vw; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+
+.section .grid-container {
+    width: 100%;
+}

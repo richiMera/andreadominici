@@ -1,0 +1,25 @@
+.slider-container {
+    width: 100%;
+    /* Riempie tutta la larghezza del viewport */
+    overflow: hidden;
+    /* Nasconde gli elementi che escono fuori dallo schermo */
+    background-color: #f0f0f0;
+}
+
+.slider-track {
+    display: flex;
+    width: calc(200%);
+    /* Il doppio della larghezza del contenitore */
+}
+
+.slider-item {
+    flex-shrink: 0;
+    /* Impedisce il ridimensionamento degli elementi */
+    width: calc(100% / 6);
+    /* La larghezza di ogni item è un sesto della track (3 originali + 3 duplicati) */
+    padding: 20px;
+    font-size: 2rem;
+    background-color: #ffeb3b;
+    text-align: center;
+    margin-right: 20px;
+}

@@ -1,0 +1,61 @@
+/* .container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.item {
+    width: 4000px;
+    height: 100%;
+    background: white;
+    border-radius: inherit;
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    width: 700px;
+    height: 400px;
+    background-color: black;
+} */
+
+/* Imposta la dimensione e l'aspetto delle card */
+/* .card {
+    width: 700px;
+    height: 433px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    margin-right: 20px;
+    
+    border-radius: 10px;
+} */
+
+.card.opacity {
+    width: 300px;
+    height: 433px;
+    opacity: 0;
+}
+
+/* Contenitore per le card che consente lo scroll orizzontale */
+.scroll-container {
+    padding-top: 77px;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    width: max-content;
+    z-index: 3000;
+    position: relative;
+    gap: 40px;
+    padding-right: 300px;
+    /* Assicura che il contenitore sia largo abbastanza per le card */
+}

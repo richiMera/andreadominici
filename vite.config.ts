@@ -4,5 +4,5 @@ import { ghPages } from 'vite-plugin-gh-pages';
 
 export default defineConfig({
   plugins: [react(), ghPages()],
-  base: '/villaSinger/', // sostituisci 'my-react-project' con il nome della tua repository
+  base: '/', // sostituisci 'my-react-project' con il nome della tua repository
 });

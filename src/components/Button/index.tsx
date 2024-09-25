@@ -2,7 +2,7 @@ import React from 'react';
 
 // Tipizzazione dell'interfaccia Props
 interface Props {
-    type: 'main' | 'back';  // Solo 'main' o 'back' sono accettabili
+    type: 'main' | 'back' | 'open';  // Solo 'main' o 'back' sono accettabili
     text: string;
     onClick: React.MouseEventHandler<HTMLDivElement | HTMLParagraphElement>; // onClick opzionale
 }
@@ -32,6 +32,8 @@ const Button: React.FC<Props> = ({ type, text, onClick }) => {
             </p>
         );
     }
+
+
 
     // Caso di default se 'type' non è 'main' o 'back'
     return null;

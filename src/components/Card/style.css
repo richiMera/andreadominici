@@ -1,0 +1,16 @@
+.cardsContainer {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0px;
+}
+
+.card {
+    width: 80vw;
+    height: 500px;
+    background-color: red;
+    border: 1px solid black;
+    position: relative;
+}

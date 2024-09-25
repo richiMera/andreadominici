@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Georgia, 'Times New Roman', Times, serif
+  font-family: 'Helvetica', 'Arial', sans-serif;
 }
 
 *,
@@ -11,31 +11,107 @@ html {
   scroll-behavior: smooth !important;
 }
 
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+  /* Nascondi la scrollbar */
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+
 
 
 h1 {
-  font-size: 56px;
-  line-height: 130%;
-  letter-spacing: -6%;
+  font-size: 18px;
+  line-height: 120%;
+  letter-spacing: .1px;
 }
 
 h2 {
-  font-size: 48px;
-  line-height: 130%;
-  letter-spacing: -5%;
+  font-size: 120px;
+  line-height: 100%;
+  letter-spacing: -2px;
+  font-weight: 400;
 }
 
 h3 {
-  font-size: 40px;
-  line-height: 130%;
-  letter-spacing: -2%;
+  font-size: 32px;
+  line-height: 120%;
+  letter-spacing: .15px;
+  font-weight: 400;
 }
 
-.p-small {
-  font-size: 14px;
-  line-height: 130%;
-  letter-spacing: -2%;
+h4 {
+  font-size: 24px;
+  line-height: 120%;
+  letter-spacing: -.15px;
+  font-weight: 400;
 }
+
+.p-regular {
+  font-size: 18px;
+  line-height: 120%;
+  letter-spacing: .1px;
+
+}
+
+.p-large {
+  font-size: 24px;
+  line-height: 120%;
+  letter-spacing: .15px;
+}
+
+.p-extra-large {
+  font-size: 32px;
+  line-height: 120%;
+  letter-spacing: .15px;
+}
+
+.link {
+  font-size: 18px;
+  line-height: 120%;
+  letter-spacing: .1px;
+}
+
+.caption {
+  font-size: 16px;
+  line-height: 120%;
+  letter-spacing: 0px;
+}
+
+.overline {
+  font-size: 14px;
+  line-height: 120%;
+  letter-spacing: .5px;
+}
+
 
 .c-primary {
   color: #E8D8B8;
@@ -48,4 +124,124 @@ h3 {
 
 .pointer {
   cursor: pointer;
+}
+
+
+.mb-4 {
+  margin-bottom: 4px;
+}
+
+.mb-8 {
+  margin-bottom: 8px;
+}
+
+.mb-16 {
+  margin-bottom: 16px;
+}
+
+.mb-24 {
+  margin-bottom: 24px;
+}
+
+.mb-48 {
+  margin-bottom: 48px;
+}
+
+.mb-112 {
+  margin-bottom: 112px;
+}
+
+.mb-128 {
+  margin-bottom: 128px;
+}
+
+
+.mb-192 {
+  margin-bottom: 192px;
+}
+
+.mb-256 {
+  margin-bottom: 256px;
+}
+
+/* Reset degli stili di elenco */
+ul,
+ol {
+  list-style: none;
+  /* Rimuove i punti o i numeri */
+  padding: 0;
+  /* Rimuove il padding */
+  margin: 0;
+  display: flex;
+  gap: 24px;
+  /* Rimuove il margine */
+}
+
+li {
+  padding: 0;
+  /* Rimuove il padding degli <li> */
+  margin: 0;
+  /* Rimuove il margine degli <li> */
+}
+
+/* Stili personalizzati per i link (opzionale) */
+a {
+  text-decoration: none;
+  /* Rimuove la sottolineatura dai link */
+  color: #000;
+  /* Colore del testo dei link */
+}
+
+
+
+.marquee {
+  display: flex;
+  /* height: 100vh; */
+  align-items: center;
+  cursor: -webkit-grab;
+  z-index: 1;
+}
+
+.item {
+
+  letter-spacing: -0.05em;
+  padding-right: 0.25em;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  user-select: none;
+  color: black;
+  display: flex;
+  margin-bottom: 16px;
+  /* will-change: transform; */
+}
+
+.marquee-item {
+  margin-right: 20px;
+}
+
+.drag {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #e6d5b8;
+}
+
+a {
+  user-select: none;
+  /* Standard syntax */
+  -webkit-user-select: none;
+  /* Safari 3.1+ */
+  -moz-user-select: none;
+  /* Firefox 2+ */
+  -ms-user-select: none;
+  /* IE 10+ */
+  cursor: pointer;
+  /* Cursor style */
 }

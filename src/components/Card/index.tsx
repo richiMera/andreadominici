@@ -1,33 +1,35 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useScroll, useTransform, motion } from 'framer-motion';
+import './style.css'
+
 
 interface Props {
-    data: any,
-    isMobile: boolean,
+    index: number,
+    progress?: any,
+    range?: any,
+    targetScale?: any,
+    data?: any
 }
 
-const Card: React.FC<Props> = ({ data, isMobile }) => {
-    const navigate = useNavigate()
+const Card: React.FC<Props> = ({ index, progress, range, targetScale, data }) => {
+    const navigate = useNavigate();
+    const container = useRef<HTMLDivElement | null>(null);
+
+    console.log(index, progress, range, targetScale, data);
+
+
+    const scale = useTransform(progress, range, [1, targetScale]);
     return (
-        <div style={{
-            backgroundImage: `url(${data?.imageUrl})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center', overflow: 'hidden', borderRadius: '10px', position: 'relative', width: isMobile ? '100%' : '770px', height: isMobile ? '213px' : '433px'
-        }} onClick={() => { navigate('/' + data?.routeName) }} >
-            <div
-                style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                    zIndex: 2,
-                }}
-            />
-            <p className='p-small c-primary' style={{ position: 'absolute', top: '24px', left: '24px', zIndex: 3 }}>{data?.chapter}</p>
-            <h3 className='c-primary' style={{ position: 'absolute', bottom: '24px', left: '24px', zIndex: 3 }}>{data?.title}</h3>
+
+        <div ref={container} className='cardsContainer'>
+            <motion.div style={{ scale, top: `calc(-10% + ${index * 25}px)` }} className='card'>
+
+            </motion.div>
         </div>
+        //  <div style={{ width: 'calc(100vw - 48px)', backgroundColor: 'green', height: '100vh' }}>
+
+        //  </div>
     );
 };
 
