@@ -147,7 +147,7 @@ const GsapTry: React.FC<GsapTryProps> = ({ data }) => {
 
     return (
         <>
-            <header style={{ display: 'flex', justifyContent: 'space-between', padding: '24px 24px 0 24px' }} className='mb-192'>
+            <header style={{ display: 'flex', justifyContent: 'space-between', padding: '24px 24px 0 24px' }} className=''>
                 <h1>andrea dominici</h1>
                 <nav>
                     <ul>
@@ -159,8 +159,8 @@ const GsapTry: React.FC<GsapTryProps> = ({ data }) => {
                     </ul>
                 </nav>
             </header>
-            <section style={{ padding: '0 24px' }} className="mb-24">
-                <div style={{ width: '66%', }} ref={firstBoxRef} className="grid-container">
+            <section ref={firstBoxRef} style={{ padding: '192px 24px 0 24px' }} className="mb-24">
+                <div style={{ width: '66%', }} className="grid-container">
                     <p className='p-extra-large'>Mi chiamo Andrea e sono un designer freelance.
                         Sono specializzato in comunicazione visiva, branding, UI / UX design e sviluppo web.</p>
                 </div>
