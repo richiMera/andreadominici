@@ -5,5 +5,5 @@ import { ghPages } from 'vite-plugin-gh-pages';
 
 export default defineConfig({
   plugins: [react(), ghPages()],
-  base: '/andreadominici', // sostituisci 'my-react-project' con il nome della tua repository
+  base: '/andreadominici/', // sostituisci 'my-react-project' con il nome della tua repository
 });
