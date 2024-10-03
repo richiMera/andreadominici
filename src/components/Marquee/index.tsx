@@ -145,7 +145,7 @@ export const InteractiveMarquee: React.FC<MarqueeProps> = (props) => {
 
     return (
         <>
-            <motion.div className="bg" style={{ opacity }} ref={constraintsRef} />
+            <motion.div className="bg" style={{ opacity: 1 }} ref={constraintsRef} />
             <motion.div
                 className="marquee"
                 ref={marqueeRef}

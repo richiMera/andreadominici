@@ -9,51 +9,32 @@ interface Props {
 const Footer: React.FC<Props> = ({ isMobile }) => {
 
 
-    const lettersArray = ['A', 'N'];
 
 
-    const [trail, setTrail] = useState<{ letter: string; left: number; top: number }[]>([]);
-    const isGenerating = useRef(false); // Ref per impedire più sequenze
-
-    const handleMouseMove = (event: React.MouseEvent) => {
-        // Se una sequenza è già in corso, non fare nulla
 
 
-        isGenerating.current = true;
-        let index = 0;
+    const boxes = Array.from({ length: 72 }); // Creiamo 64 box
+    const letters = ['A', 'N', 'D', 'R', 'E', 'A']; // Lettere che formano "ANDREA"
 
-        const interval = setInterval(() => {
+    // Stato per tenere traccia di quale box è hoverato
+    const [hoveredBox, setHoveredBox] = useState<number | null>(null);
 
-
-            setTrail((prev) => [
-                ...prev,
-                {
-                    letter: lettersArray[index],
-                    left: event.clientX + Math.random() * 100 - 25,
-                    top: event.clientY,
-                },
-            ]);
-
-            index++;
-
-            if (index >= lettersArray.length) {
-                clearInterval(interval);
-                isGenerating.current = false; // Permetti la generazione di una nuova sequenza
-            }
-        }, 300);
+    const handleMouseEnter = (index: number) => {
+        setHoveredBox(index);  // Quando il mouse entra nel box, aggiorna lo stato
     };
+
+    const handleMouseLeave = () => {
+        setHoveredBox(null);  // Quando il mouse esce, resetta lo stato
+    };
+
 
     // Rimuovi le lettere più vecchie dopo 2 secondi per evitare sovrapposizioni eccessive
     React.useEffect(() => {
-        const cleanup = setInterval(() => {
-            setTrail((prev) => prev.slice(lettersArray.length)); // Mantiene solo l'ultima sequenza di lettere
-        }, 2000);
 
-        return () => clearInterval(cleanup);
-    }, [trail]);
+    }, []);
     return (
-        <footer style={{ backgroundColor: '#EC3118', padding: '24px 24px 0 24px' }}>
-            <section className="mb-24 ">
+        <footer style={{ backgroundColor: '#EC3118', padding: '24px 24px 0 24px', height: '100svh' }}>
+            <section style={{ height: '10%' }} className="-mb-24 ">
                 <Grid container style={{}} className="">
                     <Grid item xs={6}>
                         <h4>Contatti</h4>
@@ -67,21 +48,50 @@ const Footer: React.FC<Props> = ({ isMobile }) => {
                 </Grid>
 
             </section>
-            <section className="trail-section" onMouseMove={handleMouseMove}>
-                {trail.map((item, index) => (
-                    <span
-                        key={index}
-                        className="trail-letter"
-                        style={{
-                            left: `${item.left}px`,
-                            top: `${item.top}px`,
-                        }}
-                    >
-                        {item.letter}
-                    </span>
-                ))}
-            </section>
-            <section style={{ padding: ' 24px 0', borderTop: '1px solid rgba(0, 0, 0, 0.2)' }} className=" ">
+            {/* <section className="trail-section" >
+                { }
+            </section> */}
+            <Grid container sx={{ width: '100%', height: '80%' }}>
+                {boxes.map((_, index) => {
+
+                    return (
+                        <Grid
+                            item
+                            key={index}
+                            xs={1} // Ogni box occupa 1/12
+                            sx={{
+                                position: 'relative',
+                                aspectRatio: '2/1',
+
+                                display: 'flex',
+                                alignItems: 'center',
+
+                                '&:hover': {
+                                    cursor: 'pointer', // Mostra il cursore a mano
+                                },
+                            }}
+                            onMouseEnter={() => handleMouseEnter(index)}  // Setta lo stato al passaggio del mouse
+                            onMouseLeave={handleMouseLeave}               // Resetta lo stato al termine dell'hover
+                        >
+                            {/* Se il box è hoverato, mostra una lettera */}
+                            {hoveredBox === index && (
+                                <p className='trail-letter'
+
+                                    style={{
+                                        position: 'absolute',
+                                        color: 'black',
+                                        transition: 'opacity 0.3s ease',
+                                    }}
+                                >
+                                    {/* Usa l'indice per selezionare una lettera dall'array */}
+                                    {letters[index % letters.length]}
+                                </p>
+                            )}
+                        </Grid>
+                    );
+                })}
+            </Grid>
+            <section style={{ padding: ' 24px 0', borderTop: '1px solid rgba(0, 0, 0, 0.2)', height: '10%' }} className=" ">
                 <Grid container style={{}} className="">
                     <Grid style={{ display: 'flex', gap: '24px' }} item xs={6}>
                         <p className='caption'>© Andrea Dominici</p>
